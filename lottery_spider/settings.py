@@ -88,3 +88,14 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+#Mysql数据库的配置信息
+MYSQL_HOST = '192.168.1.108'
+MYSQL_DBNAME = 'lottery_sql'         #数据库名字，请修改
+MYSQL_USER = 'root'             #数据库账号，请修改
+MYSQL_PASSWD = 'ling123'         #数据库密码，请修改
+MYSQL_PORT = 3306               #数据库端口，在dbhelper中使用
+
+TEM_PIPELINES = {
+    'webCrawler_scrapy.pipelines.WebcrawlerScrapyPipeline': 300,#保存到mysql数据库
+    'webCrawler_scrapy.pipelines.JsonWithEncodingPipeline': 300,#保存到文件中
+}
