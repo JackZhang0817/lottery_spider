@@ -45,3 +45,8 @@ class LotteryRecordItem(scrapy.Item):
     ma_5 = scrapy.Field()
     ma_6 = scrapy.Field()
     special_ma = scrapy.Field()
+
+
+class TestTableItem(scrapy.Item):
+    name = scrapy.Field()
+    url = scrapy.Field()

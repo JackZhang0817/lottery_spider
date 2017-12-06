@@ -64,9 +64,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'lottery_spider.pipelines.LotterySpiderPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'lottery_spider.pipelines.LotteryRecordPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -95,7 +95,4 @@ MYSQL_USER = 'root'             #数据库账号，请修改
 MYSQL_PASSWD = 'ling123'         #数据库密码，请修改
 MYSQL_PORT = 3306               #数据库端口，在dbhelper中使用
 
-TEM_PIPELINES = {
-    'webCrawler_scrapy.pipelines.WebcrawlerScrapyPipeline': 300,#保存到mysql数据库
-    'webCrawler_scrapy.pipelines.JsonWithEncodingPipeline': 300,#保存到文件中
-}
+
