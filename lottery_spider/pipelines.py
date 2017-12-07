@@ -4,9 +4,10 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
-import mysql.connector
-from twisted.enterprise import adbapi
-import aiomysql
+# import sys
+# sys.path.append('e:\HomeProject\Python\lottery_spider\database.py')
+
+from database import MySQL
 
 
 class LotterySpiderPipeline(object):
@@ -17,9 +18,16 @@ class LotterySpiderPipeline(object):
 
 class LotteryRecordPipeline(object):
     def process_item(self, item, spider):
-        conn = mysql.connector.connect(host='192.168.1.108', user='root', password='ling123', database='lottery_sql')
-        cursor = conn.cursor()
-        cursor.execute('create table user (id varchar(20) primary key, name varchar(20))')
-        cursor.commit()
-        cursor.close()
+        datebase = MySQL()
+        result2 = datebase.query_dic({
+            'insert': 'user',
+            'domain_array': [
+                'name',
+            ],
+            'value_array': [
+                item["create_time"]
+            ]
+        })
+        print(spider.name)
+        print(item["create_time"])
         return item
