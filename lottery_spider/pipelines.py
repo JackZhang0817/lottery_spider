@@ -20,14 +20,13 @@ class LotteryRecordPipeline(object):
     def process_item(self, item, spider):
         datebase = MySQL()
         result2 = datebase.query_dic({
-            'insert': 'user',
+            'insert': 'lt_record',
             'domain_array': [
-                'name',
+                'create_time', 'qi_num', 'ping_1', 'ping_2', 'ping_3', 'ping_4', 'ping_5', 'ping_6', 'ma_1', 'ma_2', 'ma_3', 'ma_4', 'ma_5', 'ma_6', 'special_ma', 'special_num', 'single', 'bo_color', 'min', 'five_elements', 'tetou', 'weishu', 'hedanshuang', 'jiaye', 'door_num', 'duan_num', 'yinyang', 'tiandi', 'jixiong', 'sexiao', 'bihua', 'sex', 'zonghe',
             ],
             'value_array': [
-                item["create_time"]
+                item["create_time"], item['qi_num'], item['ping_1'], item['ping_2'], item['ping_3'], item['ping_4'], item['ping_5'], item['ping_6'], item['ma_1'], item['ma_2'], item['ma_3'], item['ma_4'], item['ma_5'], item['ma_6'], item['special_ma'], item['special_num'], item['single'], item['bo_color'], item['min'], item['five_elements'], item['tetou'], item['weishu'], item['hedanshuang'], item['jiaye'], item['door_num'], item['duan_num'], item['yinyang'], item['tiandi'], item['jixiong'], item['sexiao'], item['bihua'], item['sex'], item['zonghe'],
             ]
         })
         print(spider.name)
-        print(item["create_time"])
         return item
