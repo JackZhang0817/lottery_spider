@@ -68,3 +68,12 @@ class LotteryRecordItem(scrapy.Item):
 class TestTableItem(scrapy.Item):
     name = scrapy.Field()
     url = scrapy.Field()
+
+
+class GetCollectItem(scrapy.Item):
+    content = scrapy.Field()
+
+
+class GetWenListItem(scrapy.Item):
+    title = scrapy.Field()
+    type_id = scrapy.Field()

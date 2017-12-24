@@ -6,8 +6,9 @@ from scrapy.selector import Selector
 
 class LotteryRecordSpider(scrapy.Spider):
     name = 'lottery_record'
+    download_delay = 1
     allowed_domains = ['www.2m010.cc']
-    start_urls = ['https://www.2m010.cc/history/2017.html']
+    start_urls = ['https://www.2m010.cc/history/2015.html']
 
     def parse(self, response):
         se = Selector(response)
