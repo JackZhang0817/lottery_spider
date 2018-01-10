@@ -14,6 +14,9 @@ BOT_NAME = 'lottery_spider'
 SPIDER_MODULES = ['lottery_spider.spiders']
 NEWSPIDER_MODULE = 'lottery_spider.spiders'
 
+#the image save to
+PIC_URL_SELF = 'D:/Git/lottery_spider/lottery_spider/image/'
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'lottery_spider (+http://www.yourdomain.com)'
